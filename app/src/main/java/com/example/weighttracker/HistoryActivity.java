@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity {
 
     private Button mainScreenButton;
     private Button statsScreenButton;
@@ -20,24 +20,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_history);
 
         mainScreenButton = findViewById(R.id.mainScreenButton);
         statsScreenButton = findViewById(R.id.statsScreenButton);
         historyScreenButton = findViewById(R.id.historyScreenButton);
 
-        statsScreenButton.setOnClickListener(new View.OnClickListener() {
+        mainScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, StatsActivity.class);
+                Intent intent = new Intent(HistoryActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
 
-        historyScreenButton.setOnClickListener(new View.OnClickListener() {
+        statsScreenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+                Intent intent = new Intent(HistoryActivity.this, StatsActivity.class);
                 startActivity(intent);
             }
         });
