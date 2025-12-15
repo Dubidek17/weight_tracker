@@ -23,6 +23,7 @@
         android:textStyle="bold" />
 
     <LinearLayout
+        android:id="@+id/historiaContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
@@ -58,43 +59,38 @@
                 android:text="Różnica wagi"
                 android:textStyle="bold" />
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mainScreenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_square"
+            android:backgroundTint="@null"
+            android:text="Button"
+            android:textColor="#F2F4FF" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="15 grudnia 2025" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="74.6kg" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="-0.3kg" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="bottom"
-            android:orientation="horizontal">
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="#96C5F7" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/mainScreenButton"
+                android:id="@+id/statsScreenButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -103,42 +99,20 @@
                 android:text="Button"
                 android:textColor="#F2F4FF" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <View
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:background="#96C5F7" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/statsScreenButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_square"
-                    android:backgroundTint="@null"
-                    android:text="Button"
-                    android:textColor="#F2F4FF" />
-
-                <View
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:background="#96C5F7" />
-            </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/historyScreenButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/button_square"
-                android:backgroundTint="@null"
-                android:text="Button"
-                android:textColor="#F2F4FF" />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="#96C5F7" />
         </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/historyScreenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_square"
+            android:backgroundTint="@null"
+            android:text="Button"
+            android:textColor="#F2F4FF" />
     </LinearLayout>
 </LinearLayout>

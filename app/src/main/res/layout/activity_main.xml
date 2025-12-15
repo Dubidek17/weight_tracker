@@ -56,6 +56,16 @@
             android:textColor="#F2F4FF"/>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/succeedText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_weight="0"
+        android:gravity="center" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
