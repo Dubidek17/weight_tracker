@@ -5,109 +5,140 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HistoryActivity"
-    android:orientation="vertical"
+    android:background="#F2F4FF"
     android:fitsSystemWindows="true"
-    android:background="#F2F4FF">
+    android:orientation="vertical"
+    tools:context=".HistoryActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Historia"
-        android:textSize="48sp"
-        android:textStyle="bold"
+        android:layout_margin="16dp"
+        android:layout_weight="2"
         android:gravity="center"
         android:paddingTop="16dp"
         android:paddingBottom="32dp"
-        android:layout_weight="2"
-        android:layout_margin="16dp"/>
+        android:text="Historia"
+        android:textSize="48sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_weight="3"
         android:gravity="center"
-        android:layout_weight="3">
-
-        <EditText
-            android:id="@+id/aaaaaaaaaaaaaaa"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            android:hint="Waga (kg)"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/bbbbbbbbbbbbbbb"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="date"
-            android:hint="Data"
-            android:layout_marginBottom="12dp"/>
-
-        <Button
-            android:id="@+id/ccccccccccccccc"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:text="Dodaj wagę"
-            android:backgroundTint="#96C5F7"
-            android:textColor="#F2F4FF"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="bottom"
-        android:layout_weight="2">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/mainScreenButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            android:layout_weight="1"
-            android:background="@drawable/button_square"
-            android:backgroundTint="@null"
-            android:textColor="#F2F4FF"/>
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:orientation="horizontal">
 
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="#96C5F7"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Data"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Waga"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Różnica wagi"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="15 grudnia 2025" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="74.6kg" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="-0.3kg" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="bottom"
+            android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/statsScreenButton"
+                android:id="@+id/mainScreenButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
                 android:layout_weight="1"
                 android:background="@drawable/button_square"
                 android:backgroundTint="@null"
-                android:textColor="#F2F4FF"/>
+                android:text="Button"
+                android:textColor="#F2F4FF" />
 
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:background="#96C5F7"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="#96C5F7" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/statsScreenButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_square"
+                    android:backgroundTint="@null"
+                    android:text="Button"
+                    android:textColor="#F2F4FF" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="#96C5F7" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/historyScreenButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_square"
+                android:backgroundTint="@null"
+                android:text="Button"
+                android:textColor="#F2F4FF" />
         </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/historyScreenButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            android:layout_weight="1"
-            android:background="@drawable/button_square"
-            android:backgroundTint="@null"
-            android:textColor="#F2F4FF"/>
     </LinearLayout>
 </LinearLayout>
