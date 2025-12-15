@@ -45,7 +45,9 @@
             android:ems="10"
             android:inputType="date"
             android:hint="Data"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:focusable="false"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/submitButton"
@@ -77,11 +79,11 @@
             android:id="@+id/mainScreenButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
             android:layout_weight="1"
             android:background="@drawable/button_square"
             android:backgroundTint="@null"
-            android:textColor="#F2F4FF"/>
+            android:text="Dodaj"
+            android:textColor="#F2F4FF" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -98,7 +100,7 @@
                 android:id="@+id/statsScreenButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
+                android:text="Statystyki"
                 android:layout_weight="1"
                 android:background="@drawable/button_square"
                 android:backgroundTint="@null"
@@ -114,7 +116,7 @@
             android:id="@+id/historyScreenButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="Historia"
             android:layout_weight="1"
             android:background="@drawable/button_square"
             android:backgroundTint="@null"

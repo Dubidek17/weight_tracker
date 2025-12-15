@@ -14,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat;
 public class StatsActivity extends AppCompatActivity {
 
     private Button mainScreenButton;
-    private Button statsScreenButton;
     private Button historyScreenButton;
 
     @Override
@@ -23,7 +22,6 @@ public class StatsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stats);
 
         mainScreenButton = findViewById(R.id.mainScreenButton);
-        statsScreenButton = findViewById(R.id.statsScreenButton);
         historyScreenButton = findViewById(R.id.historyScreenButton);
 
         mainScreenButton.setOnClickListener(new View.OnClickListener() {

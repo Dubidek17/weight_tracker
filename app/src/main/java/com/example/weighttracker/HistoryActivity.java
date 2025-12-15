@@ -14,6 +14,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class HistoryActivity extends AppCompatActivity {
@@ -24,17 +28,54 @@ public class HistoryActivity extends AppCompatActivity {
     private LinearLayout historiaContainer;
     private ArrayList<String> weightArray = new ArrayList<>();
     private ArrayList<String> dateArray = new ArrayList<>();
+    String fileName = "wagi.csv";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        ArrayList<String> weightArray = getIntent().getStringArrayListExtra("wagi_array");
-        ArrayList<String> dateArray = getIntent().getStringArrayListExtra("daty_array");
+        try {
+            FileInputStream fis = openFileInput(fileName);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+            String line;
+            while ((line = reader.readLine()) != null){
+                String[] parts = line.split(",");
+                if(parts.length == 2){
+                    dateArray.add(parts[0]);
+                    weightArray.add(parts[1]);
+                }
+            }
+            reader.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
         historiaContainer = findViewById(R.id.historiaContainer);
+        refreshHistory();
 
+        mainScreenButton = findViewById(R.id.mainScreenButton);
+        statsScreenButton = findViewById(R.id.statsScreenButton);
+        historyScreenButton = findViewById(R.id.historyScreenButton);
+
+        mainScreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HistoryActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        statsScreenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HistoryActivity.this, StatsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    private void refreshHistory() {
+        historiaContainer.removeAllViews();
         if (weightArray != null && dateArray != null) {
             for (int i = 0; i < weightArray.size(); i++) {
 
@@ -62,7 +103,7 @@ public class HistoryActivity extends AppCompatActivity {
                 weightDisplay.setText(weightArray.get(i) + "kg");
                 wiersz.addView(weightDisplay);
 
-                // tworzenie textview z waga
+                // tworzenie textview z roznica wag
                 TextView roznicaDisplay = new TextView(this);
                 roznicaDisplay.setLayoutParams(new LinearLayout.LayoutParams(0,
                         LinearLayout.LayoutParams.WRAP_CONTENT, 1));
@@ -85,30 +126,42 @@ public class HistoryActivity extends AppCompatActivity {
                 }
                 wiersz.addView(roznicaDisplay);
 
+                // tworzenie buttona do usuwania
+                Button deleteButton = new Button(this);
+                deleteButton.setText("Usuń");
+                deleteButton.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                ));
+                wiersz.addView(deleteButton);
+
+                final int index = i; // potrzebne, żeby listener wiedział, który wiersz
+                deleteButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        historiaContainer.removeView(wiersz);
+                        dateArray.remove(index);
+                        weightArray.remove(index);
+
+                        try {
+                            FileOutputStream fos = openFileOutput(fileName, MODE_PRIVATE);
+                            for (int j = 0; j < dateArray.size(); j++) {
+                                String linia = dateArray.get(j) + "," + weightArray.get(j) + "\n";
+                                fos.write(linia.getBytes());
+                            }
+                            fos.close();
+                        } catch (Exception e){
+                            e.printStackTrace();
+                        }
+                        refreshHistory();
+                    }
+                });
+
                 // dodanie wiersza do tabelki
                 historiaContainer.addView(wiersz);
             }
         }
-
-
-        mainScreenButton = findViewById(R.id.mainScreenButton);
-        statsScreenButton = findViewById(R.id.statsScreenButton);
-        historyScreenButton = findViewById(R.id.historyScreenButton);
-
-        mainScreenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HistoryActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        statsScreenButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HistoryActivity.this, StatsActivity.class);
-                startActivity(intent);
-            }
-        });
     }
+
+
 }
